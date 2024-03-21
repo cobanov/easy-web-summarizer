@@ -2,6 +2,18 @@
 
 A Python script designed to summarize webpages from specified URLs using the LangChain framework and the ChatOllama model. It leverages advanced language models to generate detailed summaries, making it an invaluable tool for quickly understanding the content of web-based documents.
 
+## Requirements
+
+[ollama](https://ollama.com/) must be installed and served
+
+```bash
+ollama run llama2
+```
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Features
 
 - Summarization of webpages directly from URLs.
