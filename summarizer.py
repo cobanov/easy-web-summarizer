@@ -27,8 +27,8 @@ def load_document(url):
 def setup_summarization_chain():
     """Setup the summarization chain with a prompt template and ChatOllama."""
     prompt_template = PromptTemplate(
-        template="""As a professional summarizer, create a concise and comprehensive summary of the provided text, be it an article, post, conversation, or passage, while adhering to these guidelines:
-            1. Craft a summary that is detailed, thorough, in-depth, and complex, while maintaining clarity and conciseness.
+        template="""As a professional summarizer, create a detailed and comprehensive summary of the provided text, be it an article, post, conversation, or passage, while adhering to these guidelines:
+            1. Craft a summary that is detailed, thorough, in-depth, and complex, while maintaining clarity.
 
             2. Incorporate main ideas and essential information, eliminating extraneous language and focusing on critical aspects.
 
@@ -38,9 +38,7 @@ def setup_summarization_chain():
 
             5.Conclude your notes with [End of Notes, Message #X] to indicate completion, where "X" represents the total number of messages that I have sent. In other words, include a message counter where you start with #1 and add 1 to the message counter every time I send a message.
 
-        By following this optimized prompt, you will generate an effective summary that encapsulates the essence of the given text in a clear, concise, and reader-friendly manner.
-
-        Write a detailed long summary of the following:
+        By following this optimized prompt, you will generate an effective summary that encapsulates the essence of the given text in a clear, detailed, and reader-friendly manner.
 
         "{text}"
 
