@@ -15,10 +15,21 @@ To use the webpage summarizer, run the script from the command line, providing t
 ```bash
 python summarizer.py -u "http://example.com/document"
 ```
+
 Replace `http://example.com/document` with the actual URL of the document you want to summarize.
 
+### Web UI
+
+To use the webpage summarizer in you web browser, you can also try gradio app.
+
+```bash
+python webui.py
+```
+
 ## Development
+
 To contribute to the development of this script, clone the repository, make your changes, and submit a pull request. We welcome contributions that improve the script's functionality or extend its capabilities.
 
 ## License
+
 This script is released under the MIT License. See the LICENSE file in the repository for full details.
