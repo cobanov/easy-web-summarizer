@@ -26,6 +26,8 @@ To use the webpage summarizer in you web browser, you can also try gradio app.
 python webui.py
 ```
 
+![gradio](assets/gradio.png)
+
 ## Development
 
 To contribute to the development of this script, clone the repository, make your changes, and submit a pull request. We welcome contributions that improve the script's functionality or extend its capabilities.
