@@ -29,6 +29,8 @@ DETAILED SUMMARY:""", input_variables=["text"])
 def main():
     args = setup_argparse()
     docs = load_document(args.url)
+
+    llm_chain = setup_summarization_chain()
     result = llm_chain.run(docs)
     
     print(result)
