@@ -1,5 +1,6 @@
 import gradio as gr
-from summarizer import setup_summarization_chain, load_document
+
+from summarizer import load_document, setup_summarization_chain
 
 
 def summarize(url):

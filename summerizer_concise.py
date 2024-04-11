@@ -1,7 +1,6 @@
 import argparse
 
 from langchain.chains.llm import LLMChain
-from langchain.chains.summarize import load_summarize_chain
 from langchain.prompts import PromptTemplate
 from langchain_community.chat_models import ChatOllama
 from langchain_community.document_loaders import WebBaseLoader
