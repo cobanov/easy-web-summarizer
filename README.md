@@ -44,6 +44,10 @@ python webui.py
 
 To contribute to the development of this script, clone the repository, make your changes, and submit a pull request. We welcome contributions that improve the script's functionality or extend its capabilities.
 
+- [ ] Summarizer youtube
+- [ ] Dockerize project
+- [ ] Serve on web
+
 ## License
 
 This script is released under the MIT License. See the LICENSE file in the repository for full details.
