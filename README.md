@@ -7,7 +7,7 @@ A Python script designed to summarize webpages from specified URLs using the Lan
 [ollama](https://ollama.com/) must be installed and served
 
 ```bash
-ollama run llama2
+ollama run llama3 
 ```
 
 ```bash
