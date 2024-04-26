@@ -59,7 +59,7 @@ docker compose up
 To contribute to the development of this script, clone the repository, make your changes, and submit a pull request. We welcome contributions that improve the script's functionality or extend its capabilities.
 
 - [ ] Summarizer youtube
-- [ ] Dockerize project
+- [x] Dockerize project
 - [ ] Serve on web
 
 ## License
