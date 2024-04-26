@@ -37,7 +37,7 @@ def setup_summarization_chain():
 
             5.Conclude your notes with [End of Notes, Message #X] to indicate completion, where "X" represents the total number of messages that I have sent. In other words, include a message counter where you start with #1 and add 1 to the message counter every time I send a message.
 
-        By following this optimized prompt, you will generate an effective summary that encapsulates the essence of the given text in a clear, detailed, and reader-friendly manner.
+        By following this optimized prompt, you will generate an effective summary that encapsulates the essence of the given text in a clear, detailed, and reader-friendly manner. Optimize output as markdown file.
 
         "{text}"
 
@@ -45,7 +45,7 @@ def setup_summarization_chain():
         input_variables=["text"],
     )
 
-    llm = ChatOllama(model="llama2")
+    llm = ChatOllama(model="llama3")
     llm_chain = LLMChain(llm=llm, prompt=prompt_template)
     return llm_chain
 
