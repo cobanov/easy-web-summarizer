@@ -40,6 +40,20 @@ python webui.py
 
 ![gradio](assets/gradio.png)
 
+## Docker
+
+```bash
+docker build -t web_summarizer .
+docker run -p 7860:7860 web_summarizer
+
+# Run if you run ollama on host
+docker run --network='host' -p 7860:7860 web_summarizer
+
+# Run both app and ollama as docker containers
+docker compose up
+```
+
+
 ## Development
 
 To contribute to the development of this script, clone the repository, make your changes, and submit a pull request. We welcome contributions that improve the script's functionality or extend its capabilities.
