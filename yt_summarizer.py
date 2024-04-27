@@ -28,13 +28,14 @@ def yt_summarization_chain():
     summarize_chain = load_summarize_chain(llm=llm, chain_type="refine", verbose=True)
     return summarize_chain
 
-if __name__ == "__main__":
-    videos = ["https://www.youtube.com/watch?v=bYjQ9fzinT8", "https://www.youtube.com/watch?v=QCg0axyXxs4"]
-
-    transcript = get_transcript(videos[0])
+def summarize_video(video_link):
+    transcript = get_transcript(video_link)
     chunks = split_chunks(transcript)
 
     sum_chain = yt_summarization_chain()
     result = sum_chain.run(chunks)
-    
-    print(result)
+
+    return result
+
+if __name__ == "__main__":
+    #summarize_video()
