@@ -35,7 +35,4 @@ def summarize_video(video_link):
     sum_chain = yt_summarization_chain()
     result = sum_chain.run(chunks)
 
-    return result
-
-if __name__ == "__main__":
-    #summarize_video()
+    return result[0]
