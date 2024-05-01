@@ -1,8 +1,9 @@
 import gradio as gr
 
 from summarizer import load_document, setup_summarization_chain
-from yt_summarizer import summarize_video, check_link
 from translator import setup_translator_chain
+from yt_summarizer import check_link, summarize_video
+
 
 def summarize(url):
     if check_link(url):
@@ -14,10 +15,12 @@ def summarize(url):
 
     return [result, gr.Button("🇹🇷 Translate ", visible=True)]
 
+
 def translate(text):
     llm_chain = setup_translator_chain()
     result = llm_chain.run(text)
     return result
+
 
 with gr.Blocks() as demo:
     gr.Markdown(

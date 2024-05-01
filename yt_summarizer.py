@@ -1,9 +1,10 @@
-from langchain_community.document_loaders import YoutubeLoader
+import re
+
+from langchain.chains.summarize import load_summarize_chain
 from langchain.text_splitter import TokenTextSplitter
 from langchain_community.chat_models import ChatOllama
-from langchain.chains.summarize import load_summarize_chain
+from langchain_community.document_loaders import YoutubeLoader
 from langchain_core.prompts import PromptTemplate
-import re
 
 
 def check_link(link):
@@ -23,9 +24,10 @@ def get_transcript(video_link):
 
 
 def split_chunks(transcript):
-    # Split the transcript into chunks
-    # Llama 3 model takes up to 8192 input tokens, so I set chunk size to 7500 for leaving some space to model.
-    splitter = TokenTextSplitter(chunk_size=7500, chunk_overlap=100)
+
+    splitter = TokenTextSplitter(
+        chunk_size=7500, chunk_overlap=100
+    )  # Llama 3 model takes up to 8192 input tokens, so I set chunk size to 7500 for leaving some space to model.
     chunks = splitter.split_documents(transcript)
     return chunks
 
