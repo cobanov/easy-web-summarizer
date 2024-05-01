@@ -2,6 +2,7 @@ from langchain_community.document_loaders import YoutubeLoader
 from langchain.text_splitter import TokenTextSplitter
 from langchain_community.chat_models import ChatOllama
 from langchain.chains.summarize import load_summarize_chain
+from langchain_core.prompts import PromptTemplate
 import re
 
 def check_link(link):
@@ -24,8 +25,27 @@ def split_chunks(transcript):
     return chunks
 
 def yt_summarization_chain():
+    prompt_template = PromptTemplate(
+        template="""As a professional summarizer specialized in video content, create a detailed and comprehensive summary of the YouTube video transcript provided. While crafting your summary, adhere to these guidelines:
+            1. Capture the essence of the video, focusing on main ideas and key details. Ensure the summary is in-depth and insightful, reflecting any narrative or instructional elements present in the video.
+
+            2. Exclude any redundant expressions and non-critical details to enhance the clarity and conciseness of the summary.
+
+            3. Base the summary strictly on the transcript provided, avoiding assumptions or additions from external sources.
+
+            4. Present the summary in a well-structured paragraph form, making it easy to read and understand.
+
+            5. Conclude with "[End of Notes, Message #X]", where "X" is the sequence number of the summarizing request, to indicate the completion of the task.
+
+        By adhering to this optimized prompt, you are expected to produce a clear, detailed, and audience-friendly summary that effectively conveys the core content and themes of the YouTube video.
+
+        "{text}"
+
+        DETAILED SUMMARY:""",
+        input_variables=["text"],
+    )
     llm = ChatOllama(model="llama3")
-    summarize_chain = load_summarize_chain(llm=llm, chain_type="refine", verbose=True)
+    summarize_chain = load_summarize_chain(llm=llm, prompt=prompt_template, verbose=True)
     return summarize_chain
 
 def summarize_video(video_link):
@@ -35,4 +55,4 @@ def summarize_video(video_link):
     sum_chain = yt_summarization_chain()
     result = sum_chain.run(chunks)
 
-    return result[0]
+    return result
