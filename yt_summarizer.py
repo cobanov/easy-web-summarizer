@@ -48,7 +48,7 @@ def yt_summarization_chain():
         DETAILED SUMMARY:""",
         input_variables=["text"],
     )
-    llm = ChatOllama(model="llama3", base_url="http://127.0.0.1:11434")
+    llm = ChatOllama(model="llama3:instruct", base_url="http://127.0.0.1:11434")
     summarize_chain = load_summarize_chain(
         llm=llm, prompt=prompt_template, verbose=True
     )
