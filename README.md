@@ -47,7 +47,7 @@ docker build -t web_summarizer .
 docker run -p 7860:7860 web_summarizer
 
 # Run if you run ollama on host
-docker run --network='host' -p 7860:7860 web_summarizer
+docker run -d --network='host' -p 7860:7860 web_summarizer
 ```
 
 
