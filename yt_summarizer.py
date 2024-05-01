@@ -8,6 +8,7 @@ from langchain_core.prompts import PromptTemplate
 
 
 def check_link(link):
+    """The function `check_link` uses a regular expression to check if a given link is a valid YouTube video link."""
     yt_regex = r"^(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]+)(?:\?.*)?$"
     return re.match(yt_regex, link) is not None
 

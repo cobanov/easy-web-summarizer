@@ -57,8 +57,6 @@ def main():
     llm_chain = setup_summarization_chain()
     result = llm_chain.run(docs)
 
-    print(result)
-
 
 if __name__ == "__main__":
     main()
