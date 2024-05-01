@@ -55,7 +55,7 @@ docker run --network='host' -p 7860:7860 web_summarizer
 
 To contribute to the development of this script, clone the repository, make your changes, and submit a pull request. We welcome contributions that improve the script's functionality or extend its capabilities.
 
-- [ ] Summarize youtube videos
+- [x] Summarize youtube videos
 - [x] Dockerize project
 - [ ] Serve on web
 
