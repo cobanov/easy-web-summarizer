@@ -1,3 +1,4 @@
 gradio
 langchain
 beautifulsoup4
+youtube-transcript-api
