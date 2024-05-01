@@ -16,7 +16,8 @@ pip install -r requirements.txt
 
 ## Features
 
-- Summarization of webpages directly from URLs.
+- Summarization of webpages and youtube videos directly from URLs.
+- Translates to Turkish language (other languages will be added soon!)
 - Integration with LangChain and ChatOllama for state-of-the-art summarization.
 - Command-line interface for easy use and integration into workflows.
 
@@ -57,6 +58,7 @@ To contribute to the development of this script, clone the repository, make your
 
 - [x] Summarize youtube videos
 - [x] Dockerize project
+- [ ] Translate to different languages
 - [ ] Serve on web
 
 ## License
