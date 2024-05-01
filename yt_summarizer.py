@@ -12,12 +12,14 @@ def check_link(link):
 
 
 def get_transcript(video_link):
-    # Get video transcript
-    if check_link(video_link):
+    if not check_link(video_link):
+        return "Invalid YouTube URL."
+    try:
         loader = YoutubeLoader.from_youtube_url(video_link, language=["en", "en-US"])
         transcript = loader.load()
         return transcript
-    return "Invalid YouTube URL."
+    except Exception as e:
+        return f"Failed to retrieve transcript: {e}"
 
 
 def split_chunks(transcript):
