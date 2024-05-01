@@ -57,4 +57,4 @@ with gr.Blocks() as demo:
     btn_generate.click(summarize, inputs=[url], outputs=[summary, btn_translate])
     btn_translate.click(translate, inputs=[summary], outputs=[summary])
 
-demo.launch()
+demo.launch(server_name="0.0.0.0")
