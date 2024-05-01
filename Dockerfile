@@ -20,6 +20,6 @@ EXPOSE 7860
 ENV GRADIO_SERVER_NAME="127.0.0.1"
 
 # Define the command to run the application
-CMD ["python", "webui.py"]
+CMD ["python", "app/webui.py"]
 
 
