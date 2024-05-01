@@ -5,9 +5,11 @@ from langchain.chains.summarize import load_summarize_chain
 from langchain_core.prompts import PromptTemplate
 import re
 
+
 def check_link(link):
     yt_regex = r"(https?://)?(www\.)?(youtube\.com/watch\?v=|youtu\.be/)[\w-]+"
     return re.match(yt_regex, link) is not None
+
 
 def get_transcript(video_link):
     # Get video transcript
@@ -17,12 +19,14 @@ def get_transcript(video_link):
         return transcript
     return "Invalid YouTube URL."
 
+
 def split_chunks(transcript):
     # Split the transcript into chunks
     # Llama 3 model takes up to 8192 input tokens, so I set chunk size to 7500 for leaving some space to model.
-    splitter = TokenTextSplitter(chunk_size = 7500, chunk_overlap = 100)
+    splitter = TokenTextSplitter(chunk_size=7500, chunk_overlap=100)
     chunks = splitter.split_documents(transcript)
     return chunks
+
 
 def yt_summarization_chain():
     prompt_template = PromptTemplate(
@@ -44,9 +48,12 @@ def yt_summarization_chain():
         DETAILED SUMMARY:""",
         input_variables=["text"],
     )
-    llm = ChatOllama(model="llama3")
-    summarize_chain = load_summarize_chain(llm=llm, prompt=prompt_template, verbose=True)
+    llm = ChatOllama(model="llama3", base_url="http://127.0.0.1:11434")
+    summarize_chain = load_summarize_chain(
+        llm=llm, prompt=prompt_template, verbose=True
+    )
     return summarize_chain
+
 
 def summarize_video(video_link):
     transcript = get_transcript(video_link)

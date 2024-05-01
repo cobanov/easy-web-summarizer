@@ -14,6 +14,6 @@ def setup_translator_chain():
         input_variables=["text"],
     )
 
-    llm = ChatOllama(model="llama3", base_url="http://0.0.0.0:11434")
+    llm = ChatOllama(model="llama3", base_url="http://127.0.0.1:11434")
     llm_chain = LLMChain(llm=llm, prompt=prompt_template)
     return llm_chain
