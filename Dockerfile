@@ -17,7 +17,7 @@ COPY . .
 EXPOSE 7860
 
 # Set the environment variable
-ENV GRADIO_SERVER_NAME="0.0.0.0"
+ENV GRADIO_SERVER_NAME="127.0.0.1"
 
 # Define the command to run the application
 CMD ["python", "webui.py"]
