@@ -7,7 +7,7 @@ import re
 
 
 def check_link(link):
-    yt_regex = r"(https?://)?(www\.)?(youtube\.com/watch\?v=|youtu\.be/)[\w-]+"
+    yt_regex = r"^(?:https?:\/\/)?(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]+)(?:\?.*)?$"
     return re.match(yt_regex, link) is not None
 
 
