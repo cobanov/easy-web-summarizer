@@ -1,32 +1,34 @@
 import gradio as gr
 
 from summarizer import load_document, setup_summarization_chain
+from yt_summarizer import summarize_video, check_link
 from translator import setup_translator_chain
 
-
 def summarize(url):
-    docs = load_document(url)
-    llm_chain = setup_summarization_chain()
-    result = llm_chain.run(docs)
+    if check_link(url):
+        result = summarize_video(url)
+    else:
+        docs = load_document(url)
+        llm_chain = setup_summarization_chain()
+        result = llm_chain.run(docs)
 
     return [result, gr.Button("🇹🇷 Translate ", visible=True)]
-
 
 def translate(text):
     llm_chain = setup_translator_chain()
     result = llm_chain.run(text)
     return result
 
-
 with gr.Blocks() as demo:
     gr.Markdown(
-        """# Cobanov Web Summarizer
-    Easily summarize any web page with a single click."""
+        """# Cobanov Web and Video Summarizer
+    Easily summarize any web page or YouTube video with a single click."""
     )
 
     with gr.Row():
         with gr.Column():
             url = gr.Text(label="URL", placeholder="Enter URL here")
+
             btn_generate = gr.Button("Generate")
 
             summary = gr.Markdown(label="Summary")
@@ -36,6 +38,7 @@ with gr.Blocks() as demo:
         [
             "https://cobanov.dev/haftalik-bulten/hafta-13",
             "https://bawolf.substack.com/p/embeddings-are-a-good-starting-point",
+            "https://www.youtube.com/watch?v=4pOpQwiUVXc",
         ],
         inputs=[url],
     )
@@ -50,6 +53,5 @@ with gr.Blocks() as demo:
     )
     btn_generate.click(summarize, inputs=[url], outputs=[summary, btn_translate])
     btn_translate.click(translate, inputs=[summary], outputs=[summary])
-
 
 demo.launch()
