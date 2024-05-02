@@ -45,7 +45,7 @@ def setup_summarization_chain():
         input_variables=["text"],
     )
 
-    llm = ChatOllama(model="llama3:instruct")
+    llm = ChatOllama(model="llama3:instruct", base_url="http://localhost:8000")
     llm_chain = LLMChain(llm=llm, prompt=prompt_template)
     return llm_chain
 
