@@ -59,6 +59,7 @@ To contribute to the development of this script, clone the repository, make your
 - [x] Summarize youtube videos
 - [x] Dockerize project
 - [ ] Translate to different languages
+- [ ] Streaming text output on gradio
 - [ ] Serve on web
 
 ## License
