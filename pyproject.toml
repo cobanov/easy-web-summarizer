@@ -24,7 +24,7 @@ classifiers = [
     "Topic :: Text Processing :: Linguistic",
 ]
 dependencies = [
-    "langchain>=0.3,<1.4",
+    "langchain>=0.3,<1.5",
     "langchain-core>=0.3,<1.5",
     "langchain-community>=0.3,<0.5",
     "langchain-text-splitters>=0.3,<1.2",
